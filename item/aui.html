@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>分页two</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
+
+    <style type="text/css">
+
+        body {
+            height: 100%;
+            background: #2e96d5;
+        }
+
+        .bgCell{
+          margin: 10px;
+          padding: 10px;
+          border:1px solid#2e96d5;
+          background-color: white;
+
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .flex-item {
+            font-size: 15px;
+        }
+
+
+
+        .row2{
+          margin-top: 10px;
+        }
+        .row2 img {
+          display: inline;
+          vertical-align: middle;
+          width: 3rem;
+          height: 3rem;
+        }
+        .row2 div {
+          display: inline;
+        }
+        .Text{
+          margin-left: 10px;
+          font-size: 12px;
+          min-width: 60%;
+        }
+
+        .line{
+          margin-left: 30px;
+          vertical-align: middle;
+          line-height: 3rem;
+        }
+        .evaluateText{
+          display: inline;
+          font-size: 15px;
+          float: right;
+          vertical-align: middle;
+          line-height: 3rem;
+          margin-right: 15px;
+        }
+
+
+
+
+
+
+    </style>
+
+</head>
+
+<body >
+
+
+
+
+<h2>二<h2>
+
+
+  <section id="CellList">
+
+  </section>
+
+
+</body>
+
+
+
+<script id="template" type="text/x-dot-template">
+    {{~it:value:index}}
+      <div class="bgCell">
+
+      <div class="flex-container">
+      <div class="flex-item">{{=value.title1}}</div>
+      <div class="flex-item">{{=value.title2}} </div>
+      </div>
+
+
+      <div class="row2">
+        <img class="img" src={{=value.img}}>
+        <div class="Text" > {{=value.text}} </div>
+        <div class="line">|</div>
+        <div class="evaluateText">{{=value.evaluateText}} </div>
+       </div>
+      </div>
+
+  {{~}}
+</script>
+
+
+<script type="text/javascript" src="../../../script/api.js"></script>
+  <script type="text/javascript" src="../../../script/doT.min.js"></script>
+<script>
+
+    // let allData;
+    // var index = 0;
+    apiready = function(){
+
+         initData();//本地假数据
+
+    }
+
+    function initData() {
+
+
+        var ALLData = {
+            "img": "../image/bottombtn0102.png",
+            "code": 1,
+            "msg": "所有用户",
+            "data": [{
+                "id": 1,
+                "title1": "标题一标题一标题一",
+                "title2": "标题二标题二标题二标题二",
+                "img": "https://gitee.com/iotjh/Picture/raw/master/lufei.png",
+                "text": "ABC1234DSADAWWEQWEW",
+                "evaluateText": "满意",
+            }, {
+                "id": 2,
+                "title1": "标题一标题一标题一",
+                "title2": "标题二标题二标题二标题二",
+                "img": "https://gitee.com/iotjh/Picture/raw/master/lufei.png",
+                "text": "ABC1234DSADAWWEQWEW",
+                "evaluateText": "满意",
+            },{
+                "id": 3,
+                "title1": "标题一标题一标题一",
+                "title2": "标题二标题二标题二标题二",
+                "img": "https://gitee.com/iotjh/Picture/raw/master/lufei.png",
+                "text": "ABC1234DSADAWWEQWEW",
+                "evaluateText": "满意",
+            },{
+                "id": 4,
+                "title1": "标题一标题一标题一",
+                "title2": "标题二标题二标题二标题二",
+                "img": "https://gitee.com/iotjh/Picture/raw/master/lufei.png",
+                "text": "ABC1234DSADAWWEQWEW",
+                "evaluateText": "满意",
+            }
+          ]
+        }
+
+
+
+        // console.log("data---"+ JSON.stringify(ALLData["data"]));
+        // console.log("data---"+ JSON.stringify(ALLData));
+
+        var tempFn = doT.template($api.text($api.byId('template')));
+        $api.html($api.byId('CellList'), tempFn(ALLData["data"]));
+
+        api.parseTapmode();
+
+
+    }
+
+</script>
+
+</html>
+![IMG_3327.PNG](https://upload-images.jianshu.io/upload_images/12175332-c0530407f5d0cfa4.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+

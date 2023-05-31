@@ -1,0 +1,265 @@
+
+body,div,a,ul,li{margin: 0px; padding: 0px; font-family: "微软雅黑"; font-size: 14px;}
+#topLine{
+    width:100%;
+    height: 10px;
+    background-color: #79a8eb;
+}
+#banner{
+    width:100%;
+    height: 80px;
+    border-bottom: 1px solid #EFEFEF;
+}
+#banner div:nth-child(1){
+    font-size: 50px;
+    color:#8b9df0;
+    font-weight: 600;
+    font-family: "Verdana";
+    margin-left: 80px;
+    height: 80px;
+    line-height: 80px;
+    float: left;
+}
+#banner div:nth-child(2){
+    font-size: 20px;
+    margin-left: 200px;
+    margin-top: 25px;
+    font-weight: 600;
+    height: 30px;
+    line-height: 30px;
+    width:150px;
+    text-align: center;
+    float: left;
+    border-left: 1px solid left#ccc;
+}
+#banner div:nth-child(3) a{
+    font-size: 150%;
+    margin-left: 50px;
+    margin-top: 30px;
+    height: 20px;
+    line-height: 20px;
+    width:100px;
+    text-align: center;
+    float: right;
+    border-left: 1px solid #ccc;
+    text-decoration: none;
+}                                     /*子对象的用法，不用列表li解决选择块问题*/
+
+#container{
+    width:100%;
+    /*height: 500px;*/
+    min-height: 500px;
+    background-color: #F5F5F5;
+    margin:0px auto;
+}
+#container #progressLine{
+    width:80%;
+    height: 80px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+#container #progressLine div{        /*采用多个#，划分    id   的层级关系*/
+    width:33%;
+    height: 80px;
+    background-color: #F4F4F4;
+    border: 1px solid #E6E6E6;
+    border-bottom: 0px;
+    float: left;
+    text-align: center;
+    line-height: 80px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #939393;
+}
+#container #progressLine div:nth-child(1){
+    background-color: #fff;
+    color: #000;
+}
+#container #progressLine div span{
+    width:30px;
+    height: 30px;
+    margin: 25px;
+    background-color: #F0F0F0;
+    border-radius: 30px;
+    border: 2px solid #BFBDBD;
+    text-align: center;
+    line-height: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #939393;
+    display: block;
+    float: left;
+}
+#container #progressLine div:nth-child(1) span{   /*这个 子对象  作为强调的选择块  */
+    background-color: #8597ee;
+    color: #fff;
+}
+#container #progressLineSmall{
+    width:80%;                          
+    height: 10px;
+    margin: 0 auto;
+}
+#container #progressLineSmall div{
+    width:33%;
+    height: 3px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    float: left;
+}
+#container #progressLineSmall div:nth-child(1){
+    background-color: #FD541E;
+}
+
+#container #main{
+    width: 40%;
+    margin: 0 auto;
+}
+#container #main input[type="text"]{
+    width: 100%;
+    height: 60px;
+    margin: 10px auto;
+    border: 1px solid #DCDCDC;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    color: #626262;
+}
+#container #main input[type="password"]{
+    width: 100%;
+    height: 60px;
+    margin: 10px auto;
+    border: 1px solid #DCDCDC;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    color: #626262;
+}
+#container #main input[type="button"]{
+    width: 100%;
+    height: 60px;
+    margin: 0px auto;
+    border: 1px solid #DCDCDC;
+    background-color: #9ec3ff;
+    font-family: "微软雅黑";
+    padding: 20px;
+    font-size: 20px;
+    color: #fff;
+}
+#container #main input:nth-child(1){margin-top: 30px;}
+
+#bottom{
+    width:100%;
+    height: 70px;
+    background-color:#8b8b8b; 
+    line-height: 70px;
+    text-align: center;
+    color: #ddd;
+    font-size: 12px;
+}
+
+#main #usernamePrompt{
+    width: 100%;
+    height: 30px;
+    margin: 0px auto;
+    padding-left: 10px;
+    font-family: "微软雅黑";
+    font-size: 16px;
+    color: red;
+    display: none;
+}
+
+#main #psdPrompt{
+    width: 100%;
+    height: 30px;
+    margin: 0px auto;
+    padding-left: 10px;
+    font-family: "微软雅黑";
+    font-size: 16px;
+    text-align: center;
+    display: none;
+}
+#main #psdPrompt div{
+    width:33%;
+    background-color: #309500;
+    border-left:1px solid #F2F2F2;
+    float: left;
+}
+#main #psd2Prompt{
+    width: 100%;
+    height: 30px;
+    margin: 0px auto;
+    padding-left: 10px;
+    font-family: "微软雅黑";
+    font-size: 16px;
+    color: red;
+    display: none;
+}
+
+#container #confirmation{
+    width: 40%;
+    margin: 0px auto;
+    display: none;
+}
+#confirmation #time{
+    width:100%;
+    height: 50px;
+    line-height: 50px;
+    margin: 10px 0px;
+}
+#confirmation #time div{
+    background-color: green;
+    float: left;
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: center;
+    color:#fff;
+}
+#confirmation #time div:nth-child(1){
+    width:60%;
+}
+#confirmation #time div:nth-child(2){
+    margin-left: 1%;
+    width:39%;
+}
+#confirmation input[type="text"]{
+    width: 98%;
+    height: 60px;
+    margin: 2% auto;
+    border: 1px solid #CACACA;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    color: #626262;
+}
+#confirmation input[type="button"]{
+    width: 100%;
+    height: 60px;
+    margin: 10px auto;
+    margin-bottom: 30px;
+    border: 1px solid #DCDCDC;
+    background-color: #21762B;
+    font-family: "微软雅黑";
+    padding: 20px;
+    font-size: 20px;
+    color: #fff;
+}
+
+#success{
+    width: 40%;
+    margin:0px auto;
+    padding-top: 50px;
+    display: none;
+}
+#success div{
+    width:100%;
+    height: 50px;
+    line-height: 50px;
+    background-color: green;
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: center;
+    color:#fff;
+}

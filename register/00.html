@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="00.css">
+
+</head>
+<body>
+	<div id="topLine"></div>
+	<div id="banner">
+		<div>作品集</div>
+		<div>注册账号</div>
+		<div id="goBack"><a href="../index.html">回到首页</a></div>
+	</div>
+	<div id="container">
+		<div id="progressLine">
+			<div><span>1</span> 填写注册信息</div>
+			<div><span>2</span> 验证信息</div>
+			<div><span>3</span> 注册成功</div>
+		</div>
+		<div id="progressLineSmall">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div id="main">
+			<input type="text" value="邮箱/手机号">
+			<div id="usernamePrompt"></div>
+			<input type="text" value="密码">
+			<div id="psdPrompt">
+				<div>保密等级“低”</div>
+				<div>保密等级“中”</div>
+				<div>保密等级“高”</div>
+			</div>
+			<input type="text" value="确认密码">
+			<div id="psd2Prompt"></div>
+			<input id="nextBtn1" type="button" value="下一步">
+		</div>
+		<div id="confirmation">
+			<div id="time">
+				<div>5</div>
+				<div>重新发送</div>
+			</div>
+			<input id="promptText" type="text">
+			<input id="nextBtn2" type="button" value="下一步">
+		</div>
+		<div id="success">
+			<div>注册成功！</div>
+		</div>
+	</div>
+	<div id="bottom">©2005-2016 XX市XXXX科技有限公司 版权所有 X ICP备00000000号-1</div>
+</body>
+
+</html>
+
+<script type="text/javascript">
+  var inputList=document.getElementById("main").getElementsByTagName("input");
+
+  var usernamePass=false;
+  var psdPass=false;
+  //用来检验输入合法性
+
+  //注意，此处定义，因有多个input标记的对象，所以inputList自动成为数组，从0开始，默认从前往后标记
+  inputList[0].onclick=function(){
+	  this.value="";
+  }//this指代这个inputList[0]对应的对象，即用户名的输入框。此处让输入框值清空。
+
+  inputList[0].onblur=function(){
+    var Num="0";
+    var usernamePrompt=document.getElementById("usenamePrompt");
+    if(this.value.length==0){
+	  this.value="邮箱/手机号";
+	  usernamePrompt.style.display="none";//none为消失，block为显示
+    }
+    else{
+	  if(this.value.length<8){
+		usernamePrompt.style.display="block";
+		usernamePrompt.innerHTML="用户名需要8位以上";
+	  }
+	  else{
+		var str=this.value;
+		for(var i=0;i<str.length;i++){
+			if(str.substring(i,i+1)<"0"||str.substring(i,i+1)>"9"){
+				Num="1";
+			}//substring????????????????????
+		}
+		if(Num="1"){
+			usernamePrompt.style.display="none";
+			usenanmePass=true;
+		}
+		else{
+			usernamePrompt.style.display="block";
+			usenanmePrompt.innerHTML="用户名需要包含除数字以外的字符"
+		}
+	  }
+    }
+}
+
+
+//---用户名输入以及检验
+
+
+
+  inputList[1].onclick=function(){
+	  this.value="";
+	  this.type="password";
+  }//this指代这个inputList[0]对应的对象，即用户名的输入框。此处让输入框值清空。
+
+
+
+  inputList[1].onblur=function(){
+    var Num=0;
+    var psd=document.getElementById("psdPrompt");
+	var psdLength=this.value.length;
+	var psdInnerDiv=psd.getElementsByTagName("div");
+    if(psdLength==0){
+	  this.value="密码";
+	  this.type="text";
+	  psd.style.display="none";
+    }
+    else{
+	  psd.style.display="block";
+	  psdInnerDiv[0].style.backgroundColor="green";
+	  psdInnerDiv[1].style.backgroundColor="green";
+	  psdInnerDiv[2].style.backgroundColor="green";
+	  if(psdLength<=6){
+		psdInnerDiv[0].style.backgroundColor="yellow";
+
+	  }
+	  else if(psdLength>6&&psdLength<=10){
+		psdInnerDiv[1].style.backgroundColor="yellow";
+	  }
+	  else{
+		psdInnerDiv[2].style.backgroundColor="yellow";
+	  }
+	}
+ }
+		  
+		/*var str=this.value;
+		for(var i=0;i<str.length;i++){
+			if(str.substring(i,i+1)<"0"||str.substring(i,i+1)>"9"){
+				if(Num<2){
+					Num++;
+				}	
+			}
+			if(str.substring(i,i+1)>="0"||str.substring(i,i+1)<="9"){
+				if(Num<2){
+					Num++;
+				}	
+			}
+		}
+		if(Num="1"){
+			usernamePrompt.style.display="none";
+			usenanmePass=true;
+		}
+		else{
+			usernamePrompt.style.display="block";
+			usenanmePrompt.innerHTML="密码需要同时包括数字以及字母"
+		}*/              /*复杂密码合法性检测，如需要同时包含几种字符*/
+
+   inputList[2].onclick=function(){
+	  this.value="";
+	  this.type="password";
+  }
+	
+   inputList[2].onblur=function(){
+	  var psdValue=inputList[1].value;
+	  var psd2Prompt=document.getElementById("psd2Prompt");
+	  if(this.value.length==0){
+		  this.value="确认密码";
+		  this.type="text";
+		  psd2Prompt.style.display="none";
+	  }
+	  else{
+		  if(psdValue!=this.value){
+			  psd2Prompt.style.display="block";
+			  psd2Prompt.innerHTML="两次密码不同！";
+		  }
+		  else{
+			  psd2Prompt.style.display="none";
+			  psdPass=true;
+		  }
+	  }
+ }
+//
+ nextBtn1
+ //
+ inputList[3].onclick=function(){
+	 if(usernamePass&&psdPass){
+		document.getElementById("main").style.display="none";
+		document.getElementById("confirmation").style.display="block";
+	 }
+ }
+
+ var confir=document.getElementById("confirmation").getElementsByTagName("div");
+ var promptText=document.getElementById("promptText");
+ var confirPsd="0";
+ var ifconfir=0;
+ confir[1].onclick=function(){
+     this.value=random();
+ }
+ function random(){
+	 var str="";
+	 for(var i=0;i<3;i++){
+		 
+	 }
+ }//如何生成随机字符？？？？？？？？？？？？？？？？？？？？
+ promptText.onclick=function(){
+     this.value="";
+ }
+ promptText.onblur=function(){
+	if(this.value.length==0){
+		  this.value="输入验证码";
+	  }
+	 if(this.value==confir[1].value){		 
+          ifconfir=1;
+	 }
+     
+ }
+
+ document.getElementById("nextBtn2").onclick=function(){
+	 if(ifconfir==1){
+		document.getElementById("confirmation").style.display="none";
+		document.getElementById("success").style.display="block"
+	 }
+ }
+
+
+
+
+</script>

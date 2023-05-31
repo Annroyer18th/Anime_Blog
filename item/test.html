@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>顶部分页</title>
+    <link rel="stylesheet" type="text/css" href="api.css" />
+    <link rel="stylesheet" type="text/css" href="aui.css" />
+
+    <style type="text/css">
+
+    .aui-bar{
+             background: #45C01A;
+         }
+
+         .aui-tab-item {
+             width: 100%;
+             height: 44px;
+             line-height: 44px;
+             position: relative;
+             font-size: 0.7rem;
+             text-align: center;
+             color: #212121;
+             margin-left: -1px;
+             -webkit-box-flex: 1;
+             box-flex: 1;
+         }
+         .aui-tab-item.aui-active {
+             color: red;
+             border-bottom: 0px solid #055a54;
+         }
+
+         .tab-line{
+             height: 44px;
+             line-height: 44px;
+         }
+
+    </style>
+
+    </head>
+
+    <body >
+
+
+      <!-- <header class="aui-bar aui-bar-nav" id="header">
+          <div class="aui-pull-left aui-btn">消息
+          </div>
+          <a class="aui-pull-right aui-btn">
+              <i class="aui-iconfont aui-icon-gear"></I>
+          </a>
+      </header> -->
+
+      <header class="aui-bar aui-bar-nav" id="header">
+          <a class="aui-pull-left aui-btn" tapmode onclick="closeWin()">
+              <span class="aui-iconfont aui-icon-left"></span>
+          </a>
+          <div class="aui-title">评价</div>
+      </header>
+
+
+
+      <div class="aui-tab" id="tab">
+          <div class="aui-tab-item tapmode aui-active" id="a">未评价</div>
+          <div class="tab-line">|</div>
+          <div class="aui-tab-item tapmode" id="b">已评价</div>
+      </div>
+
+
+
+    </body>
+
+    <script type="text/javascript" src="../../../script/api.js"></script>
+    <script type="text/javascript" src="../../../script/aui-tab.js" ></script>
+    <script type="text/javascript">
+
+        apiready = function(){
+
+        $api.fixStatusBar($api.byId('header'));
+
+
+        // console.log($api.byId('header').offsetHeight);
+        // console.log(api.safeArea.bottom);
+        // console.log(api.winHeight);
+        // console.log(api.frameHeight);
+
+
+        fnOpenFindFrameGroup();
+
+        var tab = new auiTab({
+            element:document.getElementById("tab"),
+            index:1,
+            repeatClick:true
+
+        },function(ret){
+
+            var currentIndex = 0;
+
+            if (ret.index ==1){
+                currentIndex =0;
+            }
+            if (ret.index ==3){
+                currentIndex =1;
+            }
+            api.setFrameGroupIndex({
+                name : "tab_body",
+                index : currentIndex,
+                scroll : true
+            });
+        });
+
+
+
+
+
+        }
+
+      // 打开页面组，实现左右滑动切换效果
+       function fnOpenFindFrameGroup() {
+
+         api.openFrameGroup({
+              name : 'tab_body',
+              rect : {
+                  x : 0,
+                  y : $api.byId('header').offsetHeight+44,
+                  w : 'auto',
+                  h : api.winHeight - $api.byId('header').offsetHeight-44
+              },
+              frames : [{
+                  name : 'top_tab_one',
+                  url : 'top_tab_one.html',
+              }, {
+                  name : 'top_tab_two',
+                  url : 'top_tab_two.html',
+              }]
+          }, function(ret, err) {
+              var index = ret.index;
+              $api.removeCls($api.byId('a'), 'aui-active');
+              $api.removeCls($api.byId('b'), 'aui-active');
+              if (index == 0) {
+                  $api.addCls($api.byId('a'), 'aui-active');
+              } else if (index == 1) {
+                  $api.addCls($api.byId('b'), 'aui-active');
+              }
+          });
+
+       }
+
+
+      function fnCloseFindFrameGroup() {
+        api.closeFrameGroup({
+            name: 'tab_body'
+        });
+      }
+
+      function closeWin(){
+          api.closeWin({
+          });
+      }
+
+
+
+    </script>
+
+</html>

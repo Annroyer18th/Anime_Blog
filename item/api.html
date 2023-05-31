@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>分页one</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
+
+    <style type="text/css">
+
+        body {
+            height: 100%;
+            background: #2e96d5;
+        }
+
+        .bgCell{
+          margin: 10px;
+          /*padding: 30px;*/
+          padding: 10px;
+          border:1px solid#2e96d5;
+            background-color: white;
+          /*background-color: #6ab494;*/
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            /*width: 400px;*/
+            /*height: 50px;*/
+            /*background-color: lightgrey;*/
+        }
+
+        .flex-item {
+            /*background-color: cornflowerblue;*/
+            /*width: 100px;
+            height: 100px;*/
+            /*margin: 5px;*/
+            font-size: 15px;
+        }
+
+        .row2{
+          margin-top: 10px;
+
+        }
+
+        .row2 img {
+          display: inline;
+          vertical-align: middle;
+          width: 3rem;
+          height: 3rem;
+        }
+        .row2 div {
+          margin-left: 10px;
+          display: inline;
+          font-size: 15px;
+        }
+        .stateText{
+          margin-right: 25px;
+          display: inline;
+          /*vertical-align:top;*/
+          float:right;
+        }
+
+
+
+
+   .row3{
+     margin-top: 10px;
+     /*border: 1px solid red;*/
+     display: flex;
+     justify-content: space-between;
+     vertical-align:middle;
+     font-size: 12px;
+     /*background-color: red;*/
+   }
+   .row3 div{
+     height: 35px;
+     line-height: 35px;
+     vertical-align:middle;
+     /*background: yellow;*/
+   }
+
+   .btn {
+     background: transparent;
+     border: 1px solid #737373;
+     border-radius: 4px;
+     width: 80px;
+     height: 35px;
+     line-height: 35px;
+     text-align: center;
+     font-size: 12px;
+     color: #737373;
+ }
+
+
+ /*.box{
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+}
+.item{
+  background: yellow;
+}*/
+
+
+
+    </style>
+
+</head>
+
+<body >
+
+<label>一</label>
+
+
+<section id="CellList">
+
+</section>
+
+
+
+
+
+</body>
+
+
+
+
+<script id="template" type="text/x-dot-template">
+    {{~it:value:index}}
+    <div class="bgCell" tapmode="" onclick="clickItem( '{{=value}}' )">
+
+    <div class="flex-container">
+    <div class="flex-item">{{=value.title1}} </div>
+    <div class="flex-item">{{=value.title2}} </div>
+    </div>
+
+
+    <div class="row2">
+      <img class="img" src={{=value.img}}>
+      <div>{{=value.time}} </div>
+      <div class="stateText">{{=value.state}} </div>
+     </div>
+
+
+     <div class="row3">
+       <div class="text">{{=value.text}}</div>
+       <button class="btn" onclick="loginOut()">开始评价</button>
+     </div>
+
+     <!--  <div class="box">
+        <span class="item">{{=value.title1}}</span>
+        <span class="item">{{=value.title2}}</span>
+      </div> -->
+
+    </div>
+  {{~}}
+</script>
+
+
+
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript" src="../../../script/doT.min.js"></script>
+
+<script>
+    apiready = function(){
+
+        initData();
+    }
+
+
+    function initData() {
+
+        var ALLData = {
+            "img": "../image/bottombtn0102.png",
+            "code": 1,
+            "msg": "所有用户",
+            "data": [{
+                "id": 1,
+                "title1": "标题一标题一标题一",
+                "title2": "标题二标题二标题二标题二",
+                "img": "https://gitee.com/iotjh/Picture/raw/master/lufei.png",
+                "time": "2018-04-06 11:11:11",
+                "state": "正常",
+                "text": "ABC1234DSADAWWEQWEW",
+            }, {
+                "id": 2,
+                "title1": "标题一标题一标题一",
+                "title2": "标题二标题二标题二标题二",
+                "img": "https://gitee.com/iotjh/Picture/raw/master/lufei.png",
+                "time": "2018-04-06 11:11:11",
+                "state": "正常",
+                "text": "ABC1234DSADAWWEQWEW",
+            },{
+                "id": 3,
+                "title1": "标题一标题一标题一",
+                "title2": "标题二标题二标题二标题二",
+                "img": "https://gitee.com/iotjh/Picture/raw/master/lufei.png",
+                "time": "2018-04-06 11:11:11",
+                "state": "正常",
+                "text": "ABC1234DSADAWWEQWEW",
+            },{
+                "id": 4,
+                "title1": "标题一标题一标题一",
+                "title2": "标题二标题二标题二标题二",
+                "img": "https://gitee.com/iotjh/Picture/raw/master/lufei.png",
+                "time": "2018-04-06 11:11:11",
+                "state": "正常",
+                "text": "ABC1234DSADAWWEQWEW",
+            }
+          ]
+        }
+
+
+
+        // console.log("data---"+ JSON.stringify(ALLData["data"]));
+        // console.log("data---"+ JSON.stringify(ALLData));
+
+        var tempFn = doT.template($api.text($api.byId('template')));
+        $api.html($api.byId('CellList'), tempFn(ALLData["data"]));
+        api.parseTapmode();
+
+
+
+    }
+
+
+    function clickItem(item) {
+      console.log("item");
+
+      console.log(JSON.stringify(item));
+      console.log(JSON.stringify(item.title2));
+      console.log(item.title1);
+
+    }
+
+
+</script>
+
+</html>
