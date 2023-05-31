@@ -1,0 +1,391 @@
+body{
+    /* 背景渐变 */
+    background-color: #94bfb560;
+}
+#container{
+    width: 100%;
+    height: 2200px;
+}
+/* #title{
+    width: 100%;
+    height: 100px;
+    background-color: rgb(16, 141, 16);
+}*/
+#banner1{
+    width: 100%;
+    height: 100pt;
+    background-color: rgba(255, 255, 255,100);
+    border-bottom: 6px white;
+    float: left;
+}
+
+#banner1 div:nth-child(1){
+    position: absolute;
+    left: 2%;
+    top: 40px;
+    font-size:30px ;
+    font-weight: 700;
+}
+@media screen and(max-width: 720px){
+    #banner1 div:nth-child(1){
+        position: absolute;
+        left: 2%;
+        top: 40px;
+        font-size:20px ;
+        font-weight: 700;
+    } 
+}
+#banner1 div:nth-child(2){
+    position: absolute;
+    left: 8%;
+    font-size:500% ;
+}
+#banner1 div:nth-child(3){
+    position: relative;
+    right: 50%;
+    top: 50pt;
+}
+#banner1 div:nth-child(4){
+    position: absolute;
+    right: 5%;
+    top: 50px;
+}
+
+
+#banner1 ul{
+    list-style: none;
+    float: right;
+}
+#banner1 ul li{
+    float: left;
+    padding:0 20px;
+    line-height: 10px;
+    font-size: 20px;
+    margin: right 20px;  
+    border-right:1px solid #444; /*li边框*/        
+}
+/*#banner2{
+    width: 50%;
+    height: 5%;
+    background-color: rgb(16, 141, 16);
+    border-bottom: 2px white;
+    float: top;
+}
+
+#banner2 ul{
+    list-style: none;
+    float: left;
+}
+#banner2 ul li{
+    float: left;
+    padding:0 20px;
+    text-align: center;
+    line-height: 10px;
+    font-size: 20px;
+    margin:left 20px;          
+}*/
+
+/*#banner3{
+    width: 50%;
+    height: 5%;
+    background-color:white;
+}
+
+#banner3 ul{
+    list-style: none;
+    float: right;
+    margin-right: 30px;
+}
+#banner3 ul li{
+    float: left;
+    padding:0 20px;
+    line-height: 50px;
+    font-size: 20px;           
+}*/
+
+#banner1 ul li a{
+    text-decoration: none;
+    color:black;
+    font-weight: bold;
+}
+
+#banner1 ul li a:hover{color: forestgreen;}
+
+#searchBox{
+    width:100%;
+    height: 80px;
+    line-height: 80px;
+    border-bottom: 1px solid gray;
+    background-color: #EAE7E7;
+    position:absolute;
+    top:40px;
+    left: 0px;
+    box-shadow: 0px 2px 5px #888888;
+}
+#searchBox input{
+    margin-top: 15px;
+    padding: 0px;
+    float: right;
+    width:300px;
+    height:50px;
+    line-height: 50px;
+    border:1px solid #CCCCCC;
+    border-radius: 2px;
+    vertical-align: middle;
+}
+#searchBox div{
+    margin-top: 15px;
+    margin-right: 50px;
+    padding: 0px;
+    float: right;
+    width:150px;
+    height:50px;
+    border:1px solid #CCCCCC;
+    background-color: #009F5A;
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+    font-family: "微软雅黑";
+}
+
+
+#BgImage{
+    float: left;
+    margin-top: 0px;
+    margin-left: 0px;
+    width: 70%;
+    height: 30%;
+    background-color: white;
+    background-image: url(image/pic1.jpg);background-repeat:no-repeat" 
+}
+#BgImage li:hover{color:tan}
+/*#BgImage ul{
+    float: none;
+    margin-bottom: 10px;
+}
+#BgImage ul li{
+    float: left;
+    text-align: center;
+    padding: 0 20px;
+}*/
+#BgImageLeft{
+    width:10%;
+    height: 30%;
+    float: right;
+    position: fixed;
+    right: 1%;
+    top: 50%;
+    background-color: rgb(173, 188, 223);
+}
+#BgImageLeft :hover{
+    box-shadow:0px 10px 10px #aeebb8;
+}
+
+#BgImageLeftp1{
+    float:none;
+    text-align: center;
+    font-size: 150%;
+    font-weight: bolder;
+    color: white;
+ }
+#BgImageLeftp2{
+    float: right;
+    margin-right: 20% ;
+    margin-top: 30%;
+    font-size: 150%;
+    font-weight: bolder;
+    color: rgb(255, 255, 255);
+}
+
+/*#contentN1{
+    width: 100%;
+    height: 50%;
+    background-color: white;
+    background-repeat:repeat-y 20px;
+}
+
+#contentN1 ul{
+    list-style: none;
+    float:none;
+    margin-right: 0px;
+}
+#contentN1 ul li{
+    float: right;
+    width: 20%;
+    height: 80%;
+    background-color: green;
+    background-size: 100px ;
+    background-repeat: repeat-y 50px;
+    background-size: cover;
+    text-align: center;
+    color: white;
+    font-size: 25px; 
+    margin:30px;      
+}*/
+#Share{
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    font-weight: bolder;
+    font-family:"青鸟华光简综艺";
+    float: none;
+    margin-left: 5%;
+    line-height: 100px;
+    background-color: rgb(131, 226, 134);
+}
+#ShareContent{
+    float: left;
+    margin-top: 5%;
+    width: 29%;
+    min-height: 17%;
+    transition:box-shadow 0.4s;
+}
+#ShareContent :hover{
+    box-shadow:0px 10px 10px #a1c5ff;
+}
+#ShareTitle{
+    float: left;
+    margin-top: 1%;
+    margin-left: 12%;
+    color: rgb(0, 0, 0);
+    font-size: 50px;
+    font-weight:500;
+    font-family:"微软雅黑";
+}
+
+#downMenuTitle a{
+    float: left;
+    width: 100%;
+    height: 3%;
+    margin-top: 3%;
+    margin-left:1% ;
+    font-family:"青鸟华光简综艺";
+    font-size: 300%;
+    font-weight: 50;
+    color: black;
+    text-decoration: none;
+}
+
+#downMenuTitle a:hover{
+    color: green;
+}
+#downMenu{
+    position:relative;
+    top:100px;
+    left: 15%;
+    padding: 5px;
+    width: 100%;
+    height: 50%;}
+#downMenu ul{
+    list-style: none;
+    width: 35%;
+    height: 25%;
+    line-height: 100px;
+    float: left;
+    background-color: #8db6d3;
+    margin:5 10px;
+    font-family:"青鸟华光简综艺";
+    font-size:250%;
+    font-weight: 600;
+    color:#fff;
+}
+#downMenu ul li{
+    margin: 20px 10px;
+}
+#downMenu ul li img{
+    float: left;
+    margin-left: 20%;
+    margin-top: 30%;
+}
+
+
+#downMenu  ul:hover{
+    box-shadow:0px 10px 10px #D7D7D7;
+}
+#downMenu ul:nth-child(1) li:nth-child(2) a{
+    text-decoration: none;
+    color: white;
+}
+#downMenu ul:nth-child(2) li:nth-child(2) a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+#downMenu ul:nth-child(3) li:nth-child(2) a{
+    text-decoration: none;
+    color: white;
+}
+#downMenu ul:nth-child(4) li:nth-child(2) a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+#downMenu ul li:hover{
+    color: tan;
+}
+
+
+#downMenu ul:nth-child(2),#downMenu ul:nth-child(4){
+    background-color: #CFCFCF;
+    color:#222;
+}
+#downMenu ul li:nth-child(1){
+    float: left;
+    width:40%;
+    height: 100px;
+    text-align: center;
+    color: honeydew;
+}
+#downMenu ul li:nth-child(1) img{
+    vertical-align:middle;
+}
+
+#downMenu ul li:nth-child(2){
+    float: right;
+    width:30%;
+    line-height: 100px;
+    text-align: center;
+}
+
+#downbanner{
+    float: left;
+    margin-bottom: 0%;
+    width: 70%;
+    height: 15%;
+}
+
+#footer{
+    float: right;
+    width: 100%;
+    height: 5%;
+    margin-bottom: 0%;
+    margin-top: 100px;
+    background-color:  rgb(182, 182, 182);          
+    border-bottom: 2px black;
+} 
+
+#p3{
+    float:center;
+    margin-left: 30%;
+    margin-top: 2%;
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+}
+
+#searchBox{
+    background-color:white;
+    position:absolute;
+    top: 60px;
+    right: 0px;
+}
+#registerBox{
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    position:absolute;
+    top: 60px;
+    right: 0px;
+}
+/*#registerBox ul{
+    list-style: none;
+}
+#registerBox ul li{
+    color: black;
+}*/
